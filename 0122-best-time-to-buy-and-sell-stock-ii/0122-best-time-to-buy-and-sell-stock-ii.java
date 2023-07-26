@@ -11,7 +11,7 @@ class Solution {
             
             //BUY STOCK if - new lower price found - or - new profit is lower (selling price higher than buying price )
             //continuously searches for the next minimum
-            if(prices[i]<min || prices[i]-min<profit)
+            if(prices[i]<min || prices[i]-min<profit || i==prices.length)
             {
                 min=prices[i];
                 total+=profit;  //add profit of previous stock to total profit
