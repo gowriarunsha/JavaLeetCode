@@ -5,7 +5,6 @@ class Solution {
         int profit=0;
         int profittoday=0;
         int total=0;
-        int sold=-1;
         
         for(int i=0;i<prices.length;i++)
         {
@@ -23,7 +22,6 @@ class Solution {
             if(profittoday>profit)
             {
                 System.out.println("YES new highest price");
-                sold=prices[i];
                 total+=profittoday-profit;
                 profit=profittoday;
                 System.out.println("profit made:"+profit);
@@ -33,23 +31,6 @@ class Solution {
                 min=prices[i];
                 profit=0;
             }
-            /*
-            else if(sold>prices[i])
-            {
-                total+=profit;
-                min=prices[i];
-                profit=0;
-                
-            }
-            
-            if(sold<prices[i])
-            {
-                sold=prices[i];
-                profit=profittoday;
-                //total=total-profit+profittoday;
-            }
-            */
-            
         }
         return total;
     }
