@@ -3,41 +3,29 @@ class Solution {
         
         int min=Integer.MAX_VALUE;  //buying price - minimized
         int profit=0;   //profit made for stock - maximized
-        //int profittoday=0;  //profit made if sold today
         int total=0;    //total profit made
         
         for(int i=0;i<prices.length;i++)
         {
             //NEW DAY
-            System.out.println("NEW DAY");
+            
+            //BUY STOCK if - new lower price found - or - new profit is lower (selling price higher than buying price )
+            //continuously searches for the next minimum
             if(prices[i]<min || prices[i]-min<profit)
             {
-                System.out.println("Buy new stock");
-                //BUY STOCK AT new min price
                 min=prices[i];
-                total+=profit;
-                profit=0;
+                total+=profit;  //add profit of previous stock to total profit
+                profit=0;   //profit of new stock bought set to 0
             }
             
-            //if profit is higher if sold today - 
+            //if profit is higher if sold today
             if(prices[i]-min>profit)
             {
-                System.out.println("YES new highest price");
-                //total+=profittoday-profit;
-                profit=prices[i]-min;
-                System.out.println("profit made:"+profit);
+                profit=prices[i]-min;   //new profit for the stock
             }
-            /*
-            else{
-                total+=profit;
-                System.out.println("Dont sell. Buy stock");
-                min=prices[i];
-                profit=0;
-            }
-            */
         }
         
-        total+=profit;
+        total+=profit;  //profit of last stock bougth added
         return total;
     }
 }
