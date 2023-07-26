@@ -26,6 +26,7 @@ class Solution {
         }
         
         //profit of last stock bougth added
-        return total+profit;
+        total+=profit;
+        return total;
     }
 }
